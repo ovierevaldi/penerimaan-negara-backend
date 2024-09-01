@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PajakModule } from './pajak/pajak.module';
+import { Pemasukan, User } from './typeorm';
 
 @Module({
   imports: [AuthModule,TypeOrmModule.forRoot({
@@ -13,7 +14,7 @@ import { PajakModule } from './pajak/pajak.module';
     username: 'root',
     password: '',
     database: 'pemasukan_pajak',
-    entities: [],
+    entities: [User, Pemasukan],
     synchronize: true
   }), PajakModule],
   controllers: [AppController],

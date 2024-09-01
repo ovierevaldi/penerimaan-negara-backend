@@ -1,4 +1,7 @@
 import { Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
+import { Pemasukan } from '../typeorm/pajak.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 
 const listPajak = [
     {
@@ -12,9 +15,15 @@ const listPajak = [
 
 @Injectable()
 export class PajakService {
-    inputPajak(payload: any): string{
-        console.log(payload)
-        return "Input Pemasukan Sukses"
+
+    constructor(
+        @InjectRepository(Pemasukan)
+        private readonly pajakRepository: Repository<Pemasukan>,
+      ) {}
+    
+    async inputPajak(payload: any): Promise<any>{
+        const newData = this.pajakRepository.create({ tipePajak: payload.tipePajak, jenisPajak: payload.jenisPajak, wilayah: payload.wilayah, jumlah: payload.jumlah, tanggal: payload.tanggal });
+        return await this.pajakRepository.save(newData);
     }
 
 

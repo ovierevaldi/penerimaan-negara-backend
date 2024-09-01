@@ -3,8 +3,4 @@ content-type: application/json
 
 {
    "jenisPajak": "1",
-   "jumlah": 1,
-   "tanggal": "2024-09-01",
-   "tipePajak": "1",
-   "wilayah": "0"
 }

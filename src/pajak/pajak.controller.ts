@@ -9,9 +9,8 @@ export class PajakController {
     }
 
     @Post('input-pemasukan')
-    async InputPemasukan(@Body() dataPajakDto: PenerimaanPajakDto) {
-        const response = this.pajakService.inputPajak(dataPajakDto);
-        return { message: response };
+    async InputPemasukan(@Body() dataPajakDto: PenerimaanPajakDto) : Promise<any> {
+        return this.pajakService.inputPajak(dataPajakDto);
     }
 
     @Get()
