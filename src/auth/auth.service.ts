@@ -5,7 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 const fakeUser = [
     {
         id: 1,
-        username: 'ovie',
+        username: '11111111',
         password: 'abc123'
     }
 ]

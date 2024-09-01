@@ -11,7 +11,6 @@ export class AuthController {
     @Post('login')
     login(@Body() authPayload: AuthPayloadDto){
         const user = this.authService.validateUser(authPayload);
-
         if(!user) throw new HttpException('Wrong Username / Password', 401);
         return user;
     }

@@ -1,7 +1,10 @@
-POST http://localhost:3000/auth/login HTTP/1.1
+POST http://localhost:3000/pajak/input-pemasukan HTTP/1.1
 content-type: application/json
 
 {
-    "username": "ovie",
-    "password": "abc123"
+   "jenisPajak": "1",
+   "jumlah": 1,
+   "tanggal": "2024-09-01",
+   "tipePajak": "1",
+   "wilayah": "0"
 }
