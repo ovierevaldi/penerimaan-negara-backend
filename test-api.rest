@@ -1,6 +1,1 @@
-POST http://localhost:3000/pajak/input-pemasukan HTTP/1.1
-content-type: application/json
-
-{
-   "jenisPajak": "1",
-}
+T http://localhost:3000/pajak/$1

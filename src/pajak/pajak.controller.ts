@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
 import { PajakService } from './pajak.service';
 import { PenerimaanPajakDto } from './dto/pajak.dto';
+import { ListWilayah } from 'src/typeorm';
 
 @Controller('pajak')
 export class PajakController {
@@ -13,8 +14,14 @@ export class PajakController {
         return this.pajakService.inputPajak(dataPajakDto);
     }
 
-    @Get()
-    getListPajak(): string {
-        return this.pajakService.getListPajak();
+    @Get('list-wilayah')
+    getListWilayah(): Promise<ListWilayah[]>  {
+        return this.pajakService.getListWilayah();
+    }
+
+   
+    @Delete('delete-wilayah/:id')
+    async deleteWilayah(@Param('id', ParseIntPipe) id: number): Promise<void> {
+        await this.pajakService.deleteWilayah(id);
     }
 }
